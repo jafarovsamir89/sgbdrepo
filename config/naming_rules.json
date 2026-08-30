@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "policy": {
+    "ui_language": "ru",
+    "keep_source_label": true,
+    "prefer_function_over_signal_name": true,
+    "avoid_raw_abbreviations_in_ui": true
+  },
+  "canonical_exact": {
+    "MOTORDREHZAHL": {"canonical_id": "ENGINE.RPM", "name_ru": "Обороты двигателя", "name_en": "Engine speed"},
+    "MOTORDREHZAHL, HOCHAUFGELOEST": {"canonical_id": "ENGINE.RPM", "name_ru": "Обороты двигателя", "name_en": "Engine speed"},
+    "KUEHLMITTELTEMPERATUR": {"canonical_id": "ENGINE.COOLANT_TEMP", "name_ru": "Температура охлаждающей жидкости", "name_en": "Coolant temperature"},
+    "MOTORTEMPERATUR": {"canonical_id": "ENGINE.TEMP", "name_ru": "Температура двигателя", "name_en": "Engine temperature"},
+    "OELTEMPERATUR": {"canonical_id": "ENGINE.OIL_TEMP", "name_ru": "Температура моторного масла", "name_en": "Engine oil temperature"},
+    "LADEDRUCK_IST": {"canonical_id": "ENGINE.BOOST.ACTUAL", "name_ru": "Фактическое давление наддува", "name_en": "Actual boost pressure"},
+    "LADEDRUCK_SOLL": {"canonical_id": "ENGINE.BOOST.TARGET", "name_ru": "Заданное давление наддува", "name_en": "Target boost pressure"},
+    "RAILDRUCK_IST": {"canonical_id": "ENGINE.RAIL_PRESSURE.ACTUAL", "name_ru": "Фактическое давление в топливной рампе", "name_en": "Actual rail pressure"},
+    "RAILDRUCK_SOLL": {"canonical_id": "ENGINE.RAIL_PRESSURE.TARGET", "name_ru": "Заданное давление в топливной рампе", "name_en": "Target rail pressure"},
+    "UBATT": {"canonical_id": "POWER.BATTERY_VOLTAGE", "name_ru": "Напряжение бортовой сети", "name_en": "Battery voltage"},
+    "FAHRGESCHWINDIGKEIT": {"canonical_id": "VEHICLE.SPEED", "name_ru": "Скорость автомобиля", "name_en": "Vehicle speed"},
+    "IST POSITION ELEKTRISCHE WASTEGATE": {"canonical_id": "ENGINE.WASTEGATE.ACTUAL", "name_ru": "Фактическое положение электронной заслонки турбины", "name_en": "Electric wastegate actual position"}
+  },
+  "token_replacements_ru": {
+    "IST": "Фактическое",
+    "SOLL": "Заданное",
+    "TEMPERATUR": "Температура",
+    "DRUCK": "Давление",
+    "POSITION": "Положение",
+    "SPANNUNG": "Напряжение",
+    "STROM": "Ток",
+    "DREHZAHL": "Частота вращения",
+    "GESCHWINDIGKEIT": "Скорость",
+    "VENTIL": "Клапан",
+    "PUMPE": "Насос",
+    "LUEFTER": "Вентилятор",
+    "KLAPPE": "Заслонка",
+    "FENSTERHEBER": "Стеклоподъёмник",
+    "VERRIEGELUNG": "Центральный замок",
+    "SITZ": "Сиденье",
+    "HEIZUNG": "Обогрев",
+    "BELUEFTUNG": "Вентиляция"
+  },
+  "fallback": {
+    "strip_prefixes": ["STATUS_", "STAT_", "STEUERN_", "STEUERUNG_"],
+    "strip_patterns": ["^STAT_0X[0-9A-F]+_WERT$"],
+    "use_source_description": true,
+    "mark_for_review_when_generic": true
+  }
+}
