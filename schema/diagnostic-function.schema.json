@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/bmw/diagnostic-function.schema.json",
+  "title": "BMW F/G Diagnostic Function",
+  "type": "object",
+  "required": [
+    "ecu_family",
+    "sgbd",
+    "function_type",
+    "canonical_id",
+    "name_ru",
+    "name_en",
+    "source_label",
+    "uds",
+    "confidence"
+  ],
+  "properties": {
+    "ecu_family": {"type": "string"},
+    "sgbd": {"type": "string"},
+    "platforms": {"type": "array", "items": {"type": "string"}},
+    "function_type": {
+      "enum": ["live_data", "activation", "routine"]
+    },
+    "category": {"type": "string"},
+    "canonical_id": {"type": "string"},
+    "name_ru": {"type": "string"},
+    "name_en": {"type": "string"},
+    "source_label": {"type": "string"},
+    "source_description": {"type": "string"},
+    "uds": {
+      "type": "object",
+      "required": ["service", "identifier"],
+      "properties": {
+        "service": {"enum": ["22", "2C", "2F", "31"]},
+        "also_supported_services": {
+          "type": "array",
+          "items": {"enum": ["22", "2C", "2F", "31"]}
+        },
+        "identifier": {"type": "string", "pattern": "^[0-9A-Fa-f]{4}$"},
+        "subfunction": {"type": ["string", "null"]}
+      },
+      "additionalProperties": true
+    },
+    "decode": {
+      "type": ["object", "null"],
+      "properties": {
+        "type": {"type": ["string", "null"]},
+        "byte_length": {"type": ["integer", "null"], "minimum": 1},
+        "multiply": {"type": ["number", "null"]},
+        "divide": {"type": ["number", "null"]},
+        "offset": {"type": ["number", "null"]},
+        "unit": {"type": ["string", "null"]},
+        "enum_table": {"type": ["string", "null"]}
+      },
+      "additionalProperties": true
+    },
+    "control": {
+      "type": ["object", "null"],
+      "properties": {
+        "modes": {"type": "array", "items": {"type": "string"}},
+        "arguments": {"type": "array", "items": {"type": "object"}},
+        "safe_default": {"type": "boolean"}
+      },
+      "additionalProperties": true
+    },
+    "requirements": {
+      "type": "object",
+      "properties": {
+        "fa_options": {"type": "array", "items": {"type": "string"}},
+        "session": {"type": ["string", "null"]},
+        "engine_running": {"type": ["boolean", "null"]},
+        "engine_stopped": {"type": ["boolean", "null"]},
+        "vehicle_stationary": {"type": ["boolean", "null"]},
+        "notes": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": true
+    },
+    "source": {
+      "type": "object",
+      "properties": {
+        "kind": {"type": "string"},
+        "repository": {"type": ["string", "null"]},
+        "path": {"type": ["string", "null"]},
+        "reference": {"type": ["string", "null"]}
+      },
+      "additionalProperties": true
+    },
+    "confidence": {
+      "enum": [
+        "OEM_PRG",
+        "OEM_ISTA",
+        "PRG_BYTECODE",
+        "VERIFIED_CAPTURE",
+        "VERIFIED_VEHICLE",
+        "OPEN_SOURCE",
+        "THIRD_PARTY",
+        "FORUM",
+        "UNVERIFIED"
+      ]
+    },
+    "review_status": {
+      "enum": ["raw", "normalized", "reviewed", "vehicle_verified"]
+    }
+  },
+  "additionalProperties": true
+}
