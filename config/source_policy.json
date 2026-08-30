@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "primary_sources": [
+    {
+      "id": "ediabasx_sgbd_docs",
+      "kind": "OEM_PRG_DERIVED",
+      "repository": "emdzej/ediabasx-docs-sgbd",
+      "local_glob": "sources/ediabasx-docs-sgbd/docs/sgbd/*.md",
+      "confidence": "OEM_PRG"
+    }
+  ],
+  "allowed_services": ["22", "2C", "2F", "31"],
+  "runtime_policy": {
+    "allow_live_data": true,
+    "allow_basic_active_tests": true,
+    "exclude_programming": true,
+    "exclude_security_access": true,
+    "exclude_immobilizer": true,
+    "exclude_destructive_routines": true,
+    "exclude_mileage_vin_manipulation": true
+  },
+  "review": {
+    "activation_requires_human_review": true,
+    "routine_31_requires_human_review": true,
+    "unknown_name_requires_human_review": true
+  }
+}
